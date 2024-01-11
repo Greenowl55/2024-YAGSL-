@@ -3,16 +3,16 @@
     "front": 13,
     "left": -13
   },
-  "absoluteEncoderOffset": 3.3693666,
+  "absoluteEncoderOffset": 106.8450076047,
   "drive": {
     "type": "sparkmax",
     "id": 4,
-    "canbus": 4
+    "canbus": null
   },
   "angle": {
     "type": "sparkmax",
     "id": 3,
-    "canbus": 3
+    "canbus": null
   },
   "conversionFactor": {
     "angle": 0,
