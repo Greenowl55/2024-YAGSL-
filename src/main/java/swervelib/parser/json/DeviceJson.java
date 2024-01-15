@@ -1,12 +1,13 @@
 package swervelib.parser.json;
 
-import com.revrobotics.SparkMaxRelativeEncoder.Type;
+import com.revrobotics.SparkRelativeEncoder.Type;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.SerialPort.Port;
 import swervelib.encoders.AnalogAbsoluteEncoderSwerve;
 import swervelib.encoders.CANCoderSwerve;
+import swervelib.encoders.CanAndCoderSwerve;
 import swervelib.encoders.PWMDutyCycleEncoderSwerve;
 import swervelib.encoders.SparkMaxAnalogEncoderSwerve;
 import swervelib.encoders.SparkMaxEncoderSwerve;
@@ -19,6 +20,7 @@ import swervelib.imu.NavXSwerve;
 import swervelib.imu.Pigeon2Swerve;
 import swervelib.imu.PigeonSwerve;
 import swervelib.imu.SwerveIMU;
+import swervelib.motors.SparkFlexSwerve;
 import swervelib.motors.SparkMaxBrushedMotorSwerve;
 import swervelib.motors.SparkMaxSwerve;
 import swervelib.motors.SwerveMotor;
@@ -70,6 +72,7 @@ public class DeviceJson
       case "canandcoder":
         return new SparkMaxEncoderSwerve(motor, 360);
       case "canandcoder_can":
+        return new CanAndCoderSwerve(id);
       case "ma3":
       case "ctre_mag":
       case "rev_hex":
@@ -173,6 +176,8 @@ public class DeviceJson
       case "neo":
       case "sparkmax":
         return new SparkMaxSwerve(id, isDriveMotor);
+      case "sparkflex":
+        return new SparkFlexSwerve(id, isDriveMotor);
       case "falcon":
       case "talonfx":
         return new TalonFXSwerve(id, canbus != null ? canbus : "", isDriveMotor);
